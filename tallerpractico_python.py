@@ -1,35 +1,29 @@
-name_Product = input("Ingrese nombre de producto: ")
-# En estos ciclos while se estan validando que el usuario no digite numeros negativos, ni letras en vez de numeros y en caso de hacerlo se le indica al usuario el error
-while True: 
-    try:
-        unit_Price = float(input("Digite precio unitario: "))
-        if (unit_Price <  0): 
-            print("Digite un numero valido para precio unitario") 
-        else:
-            break 
-    except ValueError:
-        print("Por favor digite un valor valido")  
-while True:
-    try:
-        number_product = int(input("Digite la cantidad de productos a comprar: "))
-        if (number_product < 0):
-            print("Digite un numero valido para cantidad de productos")
-        else:
-            break 
-    except ValueError:
-        print("Por favor digite un valor valido")   
-while True:
-    try:
-        percentage_number = float(input("Digite el valor del descuento: "))
-        if not(0 <= percentage_number  <= 100):
-            print("Digite un numero valido para el porcentaje de descuento")
-        else:
-            break 
-    except ValueError:
-        print("Por favor digite un valor valido")
-# Aqui se estan haciendo todas las operaciones pertinentes para mostrar al usuario el resultado
-subtotal = unit_Price * number_product
-percentage = (subtotal * percentage_number )/100
-total_price = subtotal - percentage
+compras = []
+continuar = True
+total_factura = 0
+print("\n===============================================\nBienvenido al sistema de registro de compras\n===============================================")
+while continuar:
 
-print(f"El producto a comprar es {name_Product} y el valor total de la compra es {total_price}")
+    name_Product = input("\nIngrese nombre de producto: ")
+    number_product = int(input("Digite la cantidad de productos a comprar: "))
+    unit_Price = float(input("Digite precio unitario: "))
+    percentage_number = float(input("Digite el valor del descuento: "))
+
+    compra = [name_Product, number_product, unit_Price, percentage_number]
+    compras.append(compra)
+
+    valor = input("\n¿Deseas continuar ingresando compras?: S()si N()no: ")
+    print("\n Gracias por tu compra aqui tienes tu factura")
+    if valor == "N" or valor == "n":
+        continuar = False 
+        subtotal = unit_Price * number_product
+        percentage = (subtotal * percentage_number )/100
+        total_price = subtotal - percentage
+
+        total_factura += total_price
+    else:
+        for i in range(len(compras)):
+            print(f"\n{i+1}. {compras[i][0]}, {compras[i][1]}, {compras[i][2]}, {compras[i][3]}")
+        print(f"\nTotal de todas las compras: ${total_factura}")
+    
+
