@@ -1,22 +1,25 @@
-# Taller python semana1
+#  Taller Python - Semana 1
 
-### Description
+##  Descripción
 
-Este script se solicita al usuario ingresar información relacionada con la compra de un producto, 
-realiza las validaciones pertinentes para asegurarse de que los datos ingresados sean correctos, 
-y luego calcula el precio total de la compra después de aplicar un descuento.
+Este script es un sistema interactivo de registro de compras. Permite al usuario ingresar productos uno por uno, realizando validaciones para asegurar que los datos sean correctos, y luego calcula el precio total de la factura con un descuento aplicado por producto. Al final, muestra una tabla resumen con todos los productos comprados.
 
-### Funcionamiento
+##  Funcionalidades
 
-1. El usuario ingresa el nombre del producto.
+1. Solicita al usuario el **nombre del producto**, asegurándose de que solo contenga letras.
+2. Pide la **cantidad de productos** (entero positivo).
+3. Solicita el **precio unitario** (número decimal).
+4. Pide el **porcentaje de descuento** a aplicar por producto.
+5. Permite ingresar múltiples productos en una sola sesión.
+6. Al finalizar, genera una tabla con los detalles de cada compra y el **total de la factura**.
 
-2. El programa pide el precio unitario del producto.
+##  Tecnologías utilizadas
 
-3. Luego, solicita la cantidad de productos a comprar.
+- Python 3.x
+- Librería `tabulate` para impresión tabular en consola.
 
-4. Después, solicita el porcentaje de descuento.
+##  Instalación y uso
 
-5. Finalmente, muestra el precio total con el descuento aplicado.
-
-### Tecnologys
-    python 3 
+1. Cloná este repositorio o copiá el código en tu máquina.
+2. Asegurate de tener Python 3 instalado.
+3. Instalá la librería `tabulate`:
