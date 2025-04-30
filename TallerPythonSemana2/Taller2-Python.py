@@ -82,7 +82,7 @@ while menu:
                 promedio = 0
                 while True:
                     try:
-                        calificaciones = (input("\nIngrese todas las calificaciones para el promedio: "))
+                        calificaciones = (input("\nIngrese todas las calificaciones para el promedio separadas con una (,): "))
                         notes = calificaciones.split(',')
 
                         for nota in notes:
@@ -97,6 +97,7 @@ while menu:
                 while continuar:
                     continuar_validando = input("\033[93m\n¿Deseas calcular otro promedio?: S()si N()no:\033[0m").lower()
                     if continuar_validando.lower() == "n":
+                        lista_notas = []
                         continuar = False
                         while True:
                             salida = input("\033[93m\n¿Deseas volver al menu inicial?: S()si N()no:\033[0m").lower()
