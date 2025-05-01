@@ -1,16 +1,3 @@
-# Solicitar al usuario ingresar una calificación numérica (de 0 a 100)
-# Evaluar si el estudiante ha aprobado o reprobado basándose en la calificación ingresada
-
-# 90 - 100	A	Excelente
-# 80 - 89	B	Muy Bueno
-# 70 - 79	C	Bueno
-# 60 - 69	D	Suficiente / Aprobado
-# 0 - 59	F	Insuficiente / Reprobado
-
-# 1. evaluar calificacion
-# 2. calcular promedio
-# 3. contar calificacion
-# 4. Verificar calificaciones
 lista_notas = []
 menu = True
 
@@ -74,21 +61,27 @@ while menu:
                         break
                     else:
                         print("\033[91m\nPor favor ingresa 'N' para no o 'S' para sí.\033[0m")
-        # Calcular el promedio:
-        # Permitir al usuario ingresar una lista de calificaciones (separadas por comas)
-        # Calcular y mostrar el promedio de las calificaciones en la lista
         elif opcion == 2:
             while continuar:
-                promedio = 0
                 while True:
                     try:
-                        calificaciones = (input("\nIngrese todas las calificaciones para el promedio separadas con una (,): "))
+                        calificaciones = input("\nIngrese todas las calificaciones para el promedio separadas con una (,): ")
                         notes = calificaciones.split(',')
+                        lista_notas = []
+                        valido = True
 
                         for nota in notes:
-                            lista_notas.append(float(nota))
-                        print(f"\n{lista_notas}")
+                            nota_float = float(nota)
+                            if nota_float < 0 or nota_float > 100:
+                                print("\n\033[91mNota fuera de rango, Intentalo nuevamente\033[0m")
+                                valido = False
+                                break
+                            lista_notas.append(nota_float)
 
+                        if not valido:
+                            continue 
+
+                        print(f"\n{lista_notas}")
                         promedio = sum(lista_notas) / len(lista_notas)
                         print("\nPromedio:", promedio)
                         break
@@ -110,30 +103,50 @@ while menu:
                                 print("\033[91m\nPor favor ingresa 'N' para no o 'S' para sí.\033[0m")
                         break
                     elif continuar_validando.lower() == "s":
+                        lista_notas = []
                         break
                     else:
                         print("\033[91m\nPor favor ingresa 'N' para no o 'S' para sí.\033[0m")
-
-        # Contar calificaciones mayores:
-        # Preguntar al usuario por un valor específico
-        # Contar cuántas calificaciones en la lista son mayores que este valor
         elif opcion == 3:
-            nota_especifica = float(input("\nIngresa una nota específica: "))
+            while continuar:
+                while True:
+                    try:
+                        for nota in notes:
+                            lista_notas.append(float(nota))
+                        print(f"\n{lista_notas}")
 
-            indice = 0
-            canti_mayor = 0
+                        nota_especifica = float(input("\nIngresa la nota que quiere buscar: "))
 
-            while indice < len(lista_notas):
-                if lista_notas[indice] > nota_especifica:
-                    canti_mayor += 1
-                indice += 1
+                        indice = 0
+                        canti_mayor = 0
 
-            print(f"\nCantidad de notas mayores que {nota_especifica}: {canti_mayor}")
-
-
-        # Verificar y contar calificaciones específicas:
-        # Permitir al usuario ingresar una lista de calificaciones (separadas por comas)
-        # Calcular y mostrar el promedio de las calificaciones en la lista
+                        while indice < len(lista_notas):
+                            if lista_notas[indice] > nota_especifica:
+                                canti_mayor += 1
+                            indice += 1
+                        print(f"\nCantidad de notas mayores que {nota_especifica} es: {canti_mayor}")
+                        break
+                    except ValueError:
+                        print("\n\033[91mNo puede digitar letras ni caracteres especiales, digite valor valido\033[0m")
+                while continuar:
+                    continuar_validando = input("\033[93m\n¿Deseas seguir buscando?: S()si N()no:\033[0m").lower()
+                    if continuar_validando.lower() == "n":
+                        continuar = False
+                        while True:
+                            salida = input("\033[93m\n¿Deseas volver al menu inicial?: S()si N()no:\033[0m").lower()
+                            if salida.lower() == "s":
+                                break
+                            elif salida.lower() == "n":
+                                menu = False
+                                break 
+                            else:
+                                print("\033[91m\nPor favor ingresa 'N' para no o 'S' para sí.\033[0m")
+                        break
+                    elif continuar_validando.lower() == "s":
+                        break
+                    else:
+                        print("\033[91m\nPor favor ingresa 'N' para no o 'S' para sí.\033[0m")
+        # PENDIENTE
         elif opcion == 4:
 
             nota_buscar = int(input("\n¿Qué calificación deseas buscar?: "))
