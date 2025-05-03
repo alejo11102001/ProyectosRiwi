@@ -1,5 +1,3 @@
-# Lista para almacenar las notas ingresadas por el usuario
-lista_notas = []
 menu = True
 
 # Bucle principal del menú
