@@ -75,34 +75,34 @@ while True:
     option = input("\n\033[93mElije la opción que deseas: \033[0m")
 
     if option == "1":
-        add_product()
+        while True:
+            add_product()
+            if not advance_funtion_product():
+                break
     elif option == "2":
-        search_products()
+        while True:
+            search_products()
+            if not advance_funtion_search():
+                break
     elif option == "3":
-        update_product()
+        while True:
+            update_product()
+            if not advance_funtion_update():
+                break
     elif option == "4":
-        eliminate_product()
+        while True:
+            eliminate_product()
+            if not advance_funtion_remove():
+                break
     elif option == "5":
         calculation()
+        return_to_menu_or_exit()
     elif option == "6":
-        print("Tabla")
+        show_all_products()
+        return_to_menu_or_exit()
     elif option == "7":
-        print("\nSaliendo...")
-        print("\nVuelva pronto")
+        print("\n\033[93mSaliendo del sistema...\033[0m")
+        print("\n\033[92mVuelva pronto\033[0m")
         break
     else:
-        print("Opción inválida.")
-
-#consultar productos
-##buscar producto por nombre => detalle de precio y cantidad
-##Si el producto no está en el inventario, se debe notificar adecuadamente
-
-#actualizar precios
-## actualizar mediante el nombre del producto
-
-# Eliminar productos:
-## El programa debe permitir al usuario eliminar productos del inventario de manera segura
-
-# Calcular el valor total del inventario:
-## El programa debe calcular el valor total de los productos en inventario y mostrarlo al usuario
-## Para ello, utilizarás una función anónima (lambda) que facilite este cálculo.
+        print("\n\033[91mOpción inválida.\033[0m")
