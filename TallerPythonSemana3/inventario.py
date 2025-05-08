@@ -1,6 +1,10 @@
+from funciones import *
 #añadir producto
 ## nombre, precio, cantidad disponible
 ## diccionario
+add_product()
+search_products()
+update_product()
 
 #consultar productos
 ##buscar producto por nombre => detalle de precio y cantidad
