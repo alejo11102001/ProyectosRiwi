@@ -1,4 +1,4 @@
-from funtions import *  # Importa todas las funciones definidas en el archivo 'funtions.py'
+from functions import *  # Importa todas las funciones definidas en el archivo 'funtions.py'
 
 def add_product():
     # Función para agregar un producto al inventario
@@ -29,7 +29,7 @@ def add_product():
             print("\033[91m\nDebe ser un número válido.\033[0m")
 
     # Llama a la función para agregar el producto con la información proporcionada
-    add_product_funtion(name_product, amount_product, unit_Price)
+    add_product_function(name_product, amount_product, unit_Price)
 
 def search_products():
     # Función para buscar un producto en el inventario
@@ -45,7 +45,7 @@ def search_products():
         else:
             break
     # Llama a la función que realiza la búsqueda del producto en el inventario
-    search_products_funtion(search_product)
+    search_products_function(search_product)
 
 def update_product():
     # Función para actualizar el precio de un producto
@@ -60,7 +60,7 @@ def update_product():
             # Si el producto no existe, muestra un mensaje de error
             print("\033[91m\nEste producto no existe en el inventario.\033[0m")
     # Llama a la función que realiza la actualización del producto
-    update_product_funtion(update)
+    update_product_function(update)
 
 def eliminate_product():
     # Función para eliminar un producto del inventario
@@ -69,7 +69,7 @@ def eliminate_product():
         product_eliminate = input("\nIngrese el nombre del producto que quiere eliminar: ")
         if product_eliminate in products:
             # Si el producto existe, se elimina del inventario
-            eliminate_product_funtion(product_eliminate)
+            eliminate_product_function(product_eliminate)
             break
         else:
             # Si el producto no existe, muestra un mensaje de error
@@ -99,7 +99,7 @@ while True:
         # Si elige la opción de agregar producto, ejecuta la función correspondiente
         while True:
             add_product()
-            if not advance_funtion_product():
+            if not advance_function_product():
                 break
     elif option == "2":
         # Si elige la opción de buscar producto, ejecuta la función correspondiente
@@ -107,7 +107,7 @@ while True:
             if empty_list():
                 break
             search_products()
-            if not advance_funtion_search():
+            if not advance_function_search():
                 break
     elif option == "3":
         # Si elige la opción de actualizar producto, ejecuta la función correspondiente
@@ -115,7 +115,7 @@ while True:
             if empty_list():
                 break
             update_product()
-            if not advance_funtion_update():
+            if not advance_function_update():
                 break
     elif option == "4":
         # Si elige la opción de eliminar producto, ejecuta la función correspondiente
@@ -123,7 +123,7 @@ while True:
             if empty_list():
                 break
             eliminate_product()
-            if not advance_funtion_remove():
+            if not advance_function_remove():
                 break
     elif option == "5":
         # Si elige la opción de calcular inventario, ejecuta la función correspondiente

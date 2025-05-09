@@ -2,7 +2,7 @@ from tabulate import tabulate  # Importa la librería para mostrar tablas en con
 
 products = {}  # Diccionario para almacenar los productos con su nombre como clave
 
-def add_product_funtion(name_product, amount_product, price_product):
+def add_product_function(name_product, amount_product, price_product):
     # Agrega un producto al inventario
     products[name_product] = {
         "Cantidad": amount_product,  # Almacena la cantidad del producto
@@ -10,7 +10,7 @@ def add_product_funtion(name_product, amount_product, price_product):
     }
     print(f"\033[92m\nProducto '{name_product}' agregado correctamente.\033[0m")
 
-def search_products_funtion(search_product):
+def search_products_function(search_product):
     # Busca un producto por su nombre en el inventario
     while True:
         if search_product in products:
@@ -26,7 +26,7 @@ def search_products_funtion(search_product):
             print(tabulate(table, headers=["\033[95mNombre\033[0m", "\033[95mCantidad\033[0m", "\033[95mPrecio\033[0m"], tablefmt="pretty"))
             break
 
-def update_product_funtion(update):
+def update_product_function(update):
     # Permite actualizar el precio de un producto existente
     while True:
         new_amount = input("\nIngrese nuevo precio del producto (Enter para dejar igual): ")
@@ -43,7 +43,7 @@ def update_product_funtion(update):
             # Si el precio no es válido, se muestra un mensaje de error
             print("\033[91m\nPrecio inválido, digite valor valido\033[0m")
 
-def eliminate_product_funtion(product_eliminate):
+def eliminate_product_function(product_eliminate):
     # Elimina un producto del inventario
     if product_eliminate in products:
         # Si el producto existe, lo elimina del diccionario
@@ -84,7 +84,7 @@ def return_to_menu_or_exit():
         else:
             print("\033[91m\nPor favor ingresa 'N' para no o 'S' para sí.\033[0m")
 
-def advance_funtion_product():
+def advance_function_product():
     # Pregunta si el usuario desea seguir ingresando productos
     while True:
         output_menu = input("\033[93m\n¿Deseas continuar ingresando productos?: S()si N()no:\033[0m")
@@ -95,7 +95,7 @@ def advance_funtion_product():
         else:
             print("\033[91m\nPor favor ingresa 'N' para no o 'S' para sí.\033[0m")
 
-def advance_funtion_search():
+def advance_function_search():
     # Pregunta si el usuario desea seguir buscando productos
     while True:
         search_again = input("\033[93m\n¿Deseas buscar otro producto?: S()si N()no: \033[0m")
@@ -106,7 +106,7 @@ def advance_funtion_search():
         else:
             print("\033[91m\nPor favor ingresa 'N' para no o 'S' para sí.\033[0m")
 
-def advance_funtion_update():
+def advance_function_update():
     # Pregunta si el usuario desea seguir actualizando productos
     while True:
         output_update = input("\033[93m\n¿Deseas actualizar otro producto? S(si) N(no): \033[0m")
@@ -117,7 +117,7 @@ def advance_funtion_update():
         else:
             print("\033[91m\nPor favor ingresa 'N' para no o 'S' para sí.\033[0m")
 
-def advance_funtion_remove():
+def advance_function_remove():
     # Pregunta si el usuario desea seguir eliminando productos
     while True:
         output_remove = input("\033[93m\n¿Deseas eliminar otro producto? S(si) N(no): \033[0m")
